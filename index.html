@@ -2,16 +2,58 @@
 <html lang="pl">
 <head>
   <meta charset="UTF-8">
+
+  <!-- PODGLĄD W MESSENGERZE -->
+  <meta property="og:title" content="YouTube">
+  <meta property="og:description" content="Kliknij aby obejrzeć film">
+  <meta property="og:image" content="https://i.ytimg.com/vi/dQw4w9WgXcQ/maxresdefault.jpg">
+  <meta property="og:type" content="video.other">
+
   <title>YouTube</title>
+
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: black;
+    }
+    .yt {
+      width: 560px;
+      height: 315px;
+      background-size: cover;
+      background-position: center;
+      cursor: pointer;
+      position: relative;
+    }
+    .yt::after {
+      content: "";
+      width: 80px;
+      height: 80px;
+      background: url("https://i.imgur.com/TxzC70f.png") center/contain no-repeat;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  </style>
 </head>
+
 <body>
+  <div class="yt" id="yt"
+       style="background-image:url('https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg')">
+  </div>
 
-<p>Ej znalazłem coś śmiesznego 😂 kliknij</p>
-
-<a href="https://byquangthanh.github.io/valentine.github.io/"
-   style="color: blue; text-decoration: underline;">
-https://youtube
-</a>
-
+  <script>
+    document.getElementById("yt").onclick = function () {
+      this.outerHTML =
+        '<iframe width="560" height="315" ' +
+        'src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1" ' +
+        'frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
+    };
+  </script>
 </body>
 </html>
+
